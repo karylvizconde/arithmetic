@@ -1,0 +1,155 @@
+<html>
+   <style>
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -60%);
+}
+body {
+  font-family: 'Courier New';
+  }
+  body {
+  background-image: url("https://tinyurl.com/y47pe2wc");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  }
+  .container {
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 25%;
+    max-height:15%;
+    float: left;
+  }
+
+  .text {
+    font-size: 40px;
+    padding-left: 20px;
+    padding-top: 20%;
+    float: left;
+    font-family: 'Courier New';
+  }
+
+  .button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  }
+
+  .button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  }
+
+  @keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+  }
+
+  .button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  }
+</style>
+
+<div class="centered">
+   <div class="child">
+  <font color="#FFFFFF">
+<font size="6">
+<h1 style="text-align: center;&gt; &lt;p class=">Voter or Not<br>
+<br></h1>
+<h3 style="text-align: center"><label for="name">Enter your name:</label> <input type="text" id="name" placeholder="Enter your name"><br>
+<br>
+<label for="age">Enter your age:</label> <input type="number" id="age" placeholder="Enter your age"><br>
+<br>
+<p class="result" id="result"></p><br>
+<br>
+<button style="color: white;" class="button-85" onclick="checkEligibility()">CHECK ELIGIBITY</button><br>
+<br>
+<button style="color: white;" class="button-85" onclick="resetInputs()">RESET</button><br>
+<br>
+<button style="color: white;" class="button-85" onclick="goToHome()">Go to Home</button> 
+</h3></div></div></font>
+
+<script>
+
+
+
+       function goToHome () {
+               window.location.href = "index.html"}
+
+       function checkEligibility() {
+           var name = document.getElementById("name").value;
+           var age = parseInt(document.getElementById("age").value);
+
+           if (isNaN(age)) {
+               document.getElementById("result").textContent = "Please enter a valid age.";
+           } else if (age >= 18) {
+               document.getElementById("result").textContent = name + ", you are allowed to vote!";
+           } else {
+               document.getElementById("result").textContent = name + ", you are not allowed to vote.";
+           }
+       }
+
+       function resetInputs() {
+           document.getElementById('name').value = ''; 
+           document.getElementById('age').value = '';
+           document.getElementById('result').innerHTML = '';
+           
+       }
+</script></html></div>
